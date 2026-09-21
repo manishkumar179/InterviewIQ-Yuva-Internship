@@ -30,8 +30,9 @@ const Auth = ({isModel = false}) => {
 
 
     } catch (error) {
-      console.log(error)
-      dispatch(setUserData(null))
+      console.error("Firebase Google Auth Error Code:", error.code);
+      console.error("Firebase Google Auth Error Message:", error.message);
+      dispatch(setUserData(null));
     }
   }
 

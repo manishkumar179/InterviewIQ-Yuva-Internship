@@ -8,12 +8,12 @@ import {getAuth, GoogleAuthProvider} from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_FIREBASE_APIKEY ,
-  authDomain: "interviewiq-dcc32.firebaseapp.com",
-  projectId: "interviewiq-dcc32",
-  storageBucket: "interviewiq-dcc32.firebasestorage.app",
-  messagingSenderId: "379264672105",
-  appId: "1:379264672105:web:5d3ca4d3494ba13a70ddf8"
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: "yuvaintern-aedf4.firebaseapp.com",
+  projectId: "yuvaintern-aedf4",
+  storageBucket: "yuvaintern-aedf4.firebasestorage.app",
+  messagingSenderId: "722958967052",
+  appId: "1:722958967052:web:8151c199bc9197b5fe6929"
 };
 
 // Initialize Firebase
@@ -21,6 +21,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 
-export {auth , provider}
+export { auth, provider };

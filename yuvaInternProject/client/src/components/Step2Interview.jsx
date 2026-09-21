@@ -19,7 +19,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [timeLeft, setTimeLeft] = useState(questions[0]?.timeLeft || 60);
+  const [timeLeft, setTimeLeft] = useState(questions[0]?.timeLimit || 60);
 
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,8 +109,10 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       };
 
       utterance.onend = () => {
-        videoRef.current?.pause();
-        videoRef.current.currentTime = 0;
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
         setIsAIPlaying(false);
 
         if (isMicOn) {
@@ -328,7 +330,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     to-teal-100 flex items-center justify-center p-4 sm:p-6 "
     >
       <div
-        className=" w-full mx-w-350 min-h-[80vh] bg-white rounded-3xl
+        className=" w-full max-w-7xl min-h-[80vh] bg-white rounded-3xl
       shadow-2xl border border-gray-200 flex flex-col lg:flex-row
       overflow-hidden "
       >

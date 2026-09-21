@@ -242,7 +242,7 @@ const Step3Report = ({ report }) => {
                 text={`${score}/10`}
                 styles={buildStyles({
                   textSize: "18px",
-                  pathColorz: "#10b981",
+                  pathColor: "#10b981",
                   textColor: "#ef4444",
                   trailColor: "#e5e7eb",
                 })}
